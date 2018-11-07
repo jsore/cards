@@ -1,0 +1,172 @@
+/** 
+ * design philosophy
+ *  - structure a layout before design (flex, float, position, etc.)
+ *
+ *  - use abundunt padding
+ *
+ *  - body uses more line height than headings, headings should have less height than bodies
+ *      (1.2 for headings, 1.5 to 1.6 for body text - "golden ratio = 1.61803399")
+ *
+ *  - no pure black
+ *      (#444444 for main text, more muted #666666 for body text #222222 for accent/hover on body text)
+ *
+ *  - fewer or consistant fonts (just use one font family/typeface)
+ *      For example, you can choose to have all headings a serif font (font with tails, such as 
+ *      Times New Roman) and all body text a sans-serif font (font without tails, such as Arial).
+ *
+ *  - if compelled to use more than one font: make all headings one font, and all body text the other font
+ *
+ *  - consistency is key
+ *
+ *  - fewer or complementary colors
+ *
+ *  - consistent borders and corners
+ *
+ *  - implement fine details transisitions and animations last
+ *
+ *  - subdued use of drop shadows, gradients, animations
+ */
+
+
+/*******************************************************
+/*** <typical standards to use across all websites> ***/
+html {
+    line-height: 1.6;
+    
+    /*color: #444444;*/
+    /* better black for titles */
+    /*color: #666666;*/
+    /* sublter black for bodies */
+    
+    font-family: 'Nunito', sans-serif; 
+    /* https://fonts.googleapis.com/css?family=Nunito:400,700 */
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* makes text more clear crisp and defined on all browsers */
+}
+
+h1, h2, h3, h4, h5 {
+    line-height: 1.2;
+}
+/******************************************************/
+
+body {
+    margin: 1rem 0;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.flex-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+a {
+    color: #E76C67;
+    text-decoration: none;
+}
+
+.button {
+    display: block;
+    font-size: 1rem;
+    background: #E76C67;
+    border: 1px solid #E76C67;
+    padding: .75rem 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+}
+.button:hover,
+.button:focus {
+    /*background: darken(#E76C67, 10%);*/           /* JS function? */
+    /*border: 1px solid darken(#E76C67, 10%);*/     /* JS function? */
+    background: #E0413B;
+    border: 1px solid #E0413B;
+}
+
+.card {
+    flex: 1 1 50%;
+    position: relative;
+    border: 1px solid #efefef;
+    
+    margin: 15px 0;
+    
+    margin: .5rem;
+    
+    box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+    transition: all .3s ease;
+    position: relative;
+    /* subtle shadowing around cards */
+}
+.card:hover {
+    box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
+    /* subtle darking of card shadow on hover */
+}
+
+.card-content {
+    padding: 30px 30px 110px;
+    /* extra bottom padding for absolute psoition in -details */
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.card h1 {
+    margin: 0;
+    color: #444444;
+}
+
+.card p {
+    margin: 0 0 30px;
+    color: #666666;
+}
+
+.subtitle {
+    margin: 0 0 15px;
+    color: #444444;     /* this might be in the wrong place */
+    font-weight: 700;   /*bold*/
+    font-size: 1.25rem;
+    color: #E76C67;
+}
+
+.card-details {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.card-details-inner {
+    display: flex;
+    justify-content: space-between;     
+    align-items: center;
+    /* will always align with as much space between as possible */
+    /* centered vertically */
+    
+    border-top: 1px solid #efefef;
+    margin: 0 30px;
+    padding: 30px 0;
+}
+
+.options a {
+    color: #666666;
+}
+
+.options a:hover {
+    color: #222222;
+}
+
+.fa {
+    margin-right: .25rem;
+}
